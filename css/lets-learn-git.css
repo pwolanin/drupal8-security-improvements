@@ -1,0 +1,68 @@
+.reveal .text-bg {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 1em;
+  padding-bottom: 2em;
+}
+
+.reveal .text-bg-up {
+  margin-top: -9em;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 1em;
+  padding-bottom: 2em;
+}
+
+.reveal .text-bg-down {
+  margin-top: 9em;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 1em;
+  padding-bottom: 2em;
+}
+
+.reveal .photo-credit {
+  position: absolute;
+  font-size: x-small;
+  bottom: 1em;
+  color: #888;
+}
+
+.reveal .photo-credit a {
+  color: #ccc;
+}
+
+dt {
+  color: #00C5CD;
+}
+
+.reveal .slides section .fragment.highlight-current-teal {
+  opacity: 1;
+  visibility: visible;
+}
+.reveal .slides section .fragment.highlight-current-teal.current-fragment {
+  color: #00C5CD;
+}
+
+.reveal blockquote {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.about-me {
+  position: absolute;
+  top: -4em;
+  right: 15em;
+  text-align: right;
+}
+
+.about-me h1 {
+  margin-bottom: 0;
+}
+
+.about-me .photo-credit {
+  position: relative;
+  top: 12em;
+  right: 19em;
+  text-align: right;
+}
+
