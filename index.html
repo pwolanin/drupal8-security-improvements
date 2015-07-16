@@ -108,9 +108,23 @@
         <section>
           <div class="text-bg">
             <h2>PHP vs Twig</h2>
-<!--
               <pre><code data-trim contenteditable>
-&lt;div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+&lt;div id=&quot;&lt;?php print $block_html_id; ?&gt;&quot; class=&quot;&lt;?php print $classes; ?&gt;&quot;&lt;?php print $attributes; ?&gt;&gt;
+
+  &lt;?php print render($title_prefix); ?&gt;
+&lt;?php if ($block-&gt;subject): ?&gt;
+  &lt;h2&lt;?php print $title_attributes; ?&gt;&gt;&lt;?php print $block-&gt;subject ?&gt;&lt;/h2&gt;
+&lt;?php endif;?&gt;
+  &lt;?php print render($title_suffix); ?&gt;
+
+  &lt;div class=&quot;content&quot;&lt;?php print $content_attributes; ?&gt;&gt;
+    &lt;?php print $content ?&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+              </code></pre>
+
+<!--
+<div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
   <?php print render($title_prefix); ?>
 <?php if ($block->subject): ?>
@@ -122,7 +136,6 @@
     <?php print $content ?>
   </div>
 </div>
-              </code></pre>
 -->
           </div>
         </section>
@@ -130,25 +143,24 @@
         <section>
           <div class="text-bg">
             <h2>PHP vs Twig</h2>
-<!--
               <pre><code data-trim contenteditable>
-&lt;div{{ attributes }}>
+&lt;div{{ attributes }}&gt;
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
+    &lt;h2{{ title_attributes }}&gt;{{ label }}&lt;/h2&gt;
   {% endif %}
   {{ title_suffix }}
   {% block content %}
     {{ content }}
   {% endblock %}
-</div>
+&lt;/div&gt;
               </code></pre>
--->
           </div>
         </section>
 
         </section>
 
+        <section>
         <section>
           <div class="text-bg">
             <h1>WYSIWYG in core</h1>
@@ -160,6 +172,7 @@
             <h1>WYSIWYG in core</h1>
           </div>
 	  <img src="images/allowd-tags.png"/>
+        </section>
         </section>
 
         <section>
