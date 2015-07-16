@@ -101,6 +101,7 @@
           <div class="text-bg">
             <h1>Twig: escaping by default</h1>
             <p>Drupal security model is inverted compared to Drupal 7. Text output in a template is escaped by default, unless it was previously escaped or marked safe</p>
+            <p>see: <a href="https://www.drupal.org/node/2296163">Twig autoescape enabled. New SafeMarkup class added.</a>
           </div>
           </section>
         </section>
@@ -109,37 +110,60 @@
           <div class="text-bg">
             <h1>WYSIWYG in core</h1>
           </div>
+	  <img src="images/editor-config.png"/>
+        </section>
+        <section>
+          <div class="text-bg">
+            <h1>WYSIWYG in core</h1>
+          </div>
+	  <img src="images/allowd-tags.png"/>
         </section>
 
         <section>
           <div class="text-bg">
             <h1>PHP module removed from core</h1>
-              Scripts being served by a website can access the resources of that site as you by using session cookies.
+              <ul>
+                <li>Encourages proper code management</li>
+                <li>Removes risk of exposure to anonymous (yes I've seen it in the wild)</li>
+                <li>Reduces the impact of admin accounts being compromosed</li>
+              </ul>
           </div>
         </section>
 
         <section>
           <div class="text-bg">
             <h1>CSRF token management in the routing system</h1>
-              Scripts being served by a website can access the resources of that site as you by using session cookies.
+            <p>Routes can specify token protection for GET requests, instead of requiring hand coded protection using API functions.</p>
           </div>
         </section>
 
         <section>
           <div class="text-bg">
-            <h1>Browser security model - same origin</h1>
-              Scripts being served by a website can access the resources of that site as you by using session cookies.
+            <h1>Trusted Host Configuration in settings.php</h1>
+            <p>Easier way to block unexpect host names accessing Drupal.</p>
           </div>
         </section>
 
         <section>
           <div class="text-bg">
-            <h1>Common gotchas with browser security</h1>
-              <ul>
-                <li>Cookies shared to subdomains or paths</li>
-                <li>Browser mime-type sniffing</li>
-                <li>Cross-domain attacks</li>
-              </ul>
+            <h1>Limit PDO MySQL to executing single statements if PHP supports it</h1>
+            <p>Requires PHP <a href="https://www.drupal.org/node/2388255">7.x backport</a></p>
+          </div>
+        </section>
+
+        <section>
+          <div class="text-bg">
+            <h1>Remove mixed SSL support from core</h1>
+              <p>Support for sessions that work both SSL and non-SSL (Secure Pages) <a href="https://www.drupal.org/node/2384903">removed</a>. Encourages full SSL.</p>
+              <p>Will have to replace the session handling service if you really need this.</p> 
+          </div>
+        </section>
+
+        <section>
+          <div class="text-bg">
+            <h1>Inline JS removed from #attached</h1>
+            <p>Adding inlone JS is no longer a supported part of the render system</p>
+            <p>Converted drupalSettings from JavaScript to JSON, to allow for CSP in the future. <a href="https://www.drupal.org/node/2510104">7.x backport</a></p>
           </div>
         </section>
 
@@ -171,14 +195,6 @@
           </div>
         </section>
 
-        <section>
-          <div class="text-bg">
-            <h2>Cross Domain Data Hijacking</h2>
-              https://soroush.secproject.com/blog/2014/05/even-uploading-a-jpg-file-can-lead-to-cross-domain-data-hijacking-client-side-attack/
-              <p>Any allowed file upload like a .jpg can actaully be javascript content</p>
-              <p>Embedding the file with an OBJECT tag on another domain can enable CSRF and data hijacking</p>
-          </div>
-        </section>
 
         <section>
           <div class="text-bg">
@@ -210,14 +226,16 @@
 
         <section>
           <div class="text-bg">
-            <h2>Use CDN module or a little custom module</h2>
+            <h2>Pending Drupal 8 patches (help needed)</h2>
               <ul>
-                <li>Serve uploaded files from a subdomain or different domain</li>
-                <li>Use sites dir or redirect to prevent Drupal on the files domains</li>
-                <li>Block public files on the Drupal domain</li>
+                <li><a href="https://www.drupal.org/node/2489672">Limit all DB drivers to executing single statements by checking for deleimiter</a></li>
+                <li><a href="https://www.drupal.org/node/144538">User logout is vulnerable to CSRF</a></li>
+                <li><a href="https://www.drupal.org/node/2234243">Include defenses against BREACH and other TLS attacks in Drupal core</a></li>
               </ul>
           </div>
         </section>
+
+
 
         <section>
           <div class="text-bg">
@@ -225,7 +243,7 @@
             <ul>
             <li>http://opensource.com/business/15/5/interview-Greg-Knaddison-Michael-Hess-Drupal</li>
             <li>https://events.drupal.org/losangeles2015/sessions/building-secure-sites-drupal</li>
-            <li></li>
+            <li><a href="https://www.drupal.org/node/1992030">Protecting against HTTP HOST Header attacks</a></li>
             <li></li>
             </ul>
           </div>
