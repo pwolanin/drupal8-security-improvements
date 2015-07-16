@@ -104,6 +104,49 @@
             <p>see: <a href="https://www.drupal.org/node/2296163">Twig autoescape enabled. New SafeMarkup class added.</a>
           </div>
           </section>
+
+        <section>
+          <div class="text-bg">
+            <h2>PHP vs Twig</h2>
+<!--
+              <pre><code data-trim contenteditable>
+&lt;div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+
+  <?php print render($title_prefix); ?>
+<?php if ($block->subject): ?>
+  <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
+<?php endif;?>
+  <?php print render($title_suffix); ?>
+
+  <div class="content"<?php print $content_attributes; ?>>
+    <?php print $content ?>
+  </div>
+</div>
+              </code></pre>
+-->
+          </div>
+        </section>
+
+        <section>
+          <div class="text-bg">
+            <h2>PHP vs Twig</h2>
+<!--
+              <pre><code data-trim contenteditable>
+&lt;div{{ attributes }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>
+              </code></pre>
+-->
+          </div>
+        </section>
+
         </section>
 
         <section>
@@ -140,14 +183,14 @@
         <section>
           <div class="text-bg">
             <h1>Trusted Host Configuration in settings.php</h1>
-            <p>Easier way to block unexpect host names accessing Drupal.</p>
+            <p>Easier way to block unexpected host names accessing Drupal (phishing, cache poisoining, etc).</p>
           </div>
         </section>
 
         <section>
           <div class="text-bg">
             <h1>Limit PDO MySQL to executing single statements if PHP supports it</h1>
-            <p>Requires PHP <a href="https://www.drupal.org/node/2388255">7.x backport</a></p>
+            <p>Requires PHP 5.5.21+ or 5.6.5+ for PDO MySQL change. <a href="https://www.drupal.org/node/2388255">7.x backport</a></p>
           </div>
         </section>
 
@@ -167,66 +210,18 @@
           </div>
         </section>
 
-        <section data-background="images/test-alert-popup.png">
-          <div class="text-bg-down">
-          A safe-looking file extension parsed as HTML + javascript
-          </div>
-        </section>
-
-        <section data-background="images/test-response-headers.png">
-          <div class="text-bg-up">
-          No content-type, browser "guessed".
-          </div>
-        </section>
-
-        <section data-background="images/defused-nosniff.png">
-          <div class="text-bg-up">
-          Defused by setting nosniff
-          </div>
-        </section>
 
         <section>
           <div class="text-bg">
-            <h1>Drupal 7 </h1>
-              <ul>
-                <li>nosniff core patch: https://www.drupal.org/node/2513366</li>
-                <li>Enable mod_mime for apache and configure it</li>
-              </ul>
+            <h1>Improved security of session ID against DB exposure or SQL injection</h1>
+            <p>Hash session IDs in the database so the raw cookie value can't be exposed.  <a href="https://www.drupal.org/node/2164025">7.x backport</a></p>
           </div>
         </section>
 
 
         <section>
           <div class="text-bg">
-            <h1>The heavy fix - content disposition</h1>
-               <pre><code>
-&lt;IfModule mod_headers.c&gt;
-  &lt;FilesMatch "\.(?i:pdf)$"&gt;
-    ForceType application/octet-stream
-    Header set Content-Disposition "attachment"
-  &lt;/FilesMatch&gt;
-&lt;/IfModule&gt;
-              </code></pre>
-          </div>
-        </section>
-
-
-        <section>
-          <div class="text-bg">
-            <h2>Don't use a bare domain. In Drupal 7, set $cookie_domain in settings.php for www.</h2>
-              <pre><code data-trim contenteditable>
-/**
- * Drupal automatically generates a unique session cookie name
- *  for each site based on its full domain name...
- */
-# $cookie_domain = 'example.com';
-              </code></pre>
-          </div>
-        </section>
-
-        <section>
-          <div class="text-bg">
-            <h2>Pending Drupal 8 patches (help needed)</h2>
+            <h2>Some pending Drupal 8 patches (help needed)</h2>
               <ul>
                 <li><a href="https://www.drupal.org/node/2489672">Limit all DB drivers to executing single statements by checking for deleimiter</a></li>
                 <li><a href="https://www.drupal.org/node/144538">User logout is vulnerable to CSRF</a></li>
@@ -241,10 +236,18 @@
           <div class="text-bg">
             <h2>Sources and Resources</h2>
             <ul>
-            <li>http://opensource.com/business/15/5/interview-Greg-Knaddison-Michael-Hess-Drupal</li>
-            <li>https://events.drupal.org/losangeles2015/sessions/building-secure-sites-drupal</li>
+            <li><a href="http://opensource.com/business/15/5/interview-Greg-Knaddison-Michael-Hess-Drupal">greggles and mlhess interview on opensource.com</a></li>
+            <li><a href="https://events.drupal.org/losangeles2015/sessions/building-secure-sites-drupal">greggles and mlhess Drupalcon LA preso</a></li>
             <li><a href="https://www.drupal.org/node/1992030">Protecting against HTTP HOST Header attacks</a></li>
             <li></li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <div class="text-bg">
+            <h1>Thanks! Questions?</h1>
+            <ul>
+            <li>Contact me: https://www.drupal.org/user/49851/contact</li>
             </ul>
           </div>
         </section>
