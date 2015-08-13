@@ -66,3 +66,6 @@ dt {
   text-align: right;
 }
 
+.reveal .slides .small-text {
+  font-size: 50%;
+}

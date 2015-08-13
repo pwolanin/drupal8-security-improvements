@@ -44,7 +44,6 @@
           <span class="logo__image">
             <img src="images/acquia_logo_grey_medium.png" alt="Acquia gray logo" height="35px" />
           </span>
-          <p class="logo__site-name">#acquia</p>
         </div>
         <div class="session--info"  style="position: absolute; bottom: 0em; z-index: 20;">
           <p class="session__title">
@@ -61,8 +60,9 @@
       <div class="slides">
         <section>
           <h1>Drupal 8.0.x Security Improvements</h1>
-          <h2>July 17, 2015</h2>
-          <h2>Drupal Security and Privacy Summit</h2>
+          <h2>August 13, 2015</h2>
+          <h2>Central NJ Drupal Meetup</h2>
+          <em class="small-text">originally prepared for Drupal Security and Privacy Summit at 2015 NYCcamp</em>
         </section>
 
         <section data-background="images/backgrounds/16968083219_34589346e4_o.jpg">
@@ -146,6 +146,18 @@
 
         </section>
 
+
+        <section>
+          <div class="text-bg">
+           <h2>CMI</h2>
+           <ul>
+            <li>Site configuration exportable, manageable as code, and versionable</li>
+            <li>Configuration can be locked in production and deployed from QA</li>
+            <li>Much easier to track an auditable history of configuration changes</li>
+            </ul>
+          </div>
+        </section>
+
         <section>
         <section>
           <div class="text-bg">
@@ -213,7 +225,7 @@
         <section>
           <div class="text-bg">
             <h1>Inline JS removed from #attached</h1>
-            <p>Adding inlone JS is no longer a supported part of the render system</p>
+            <p>Adding inline JS is no longer a supported part of the render system</p>
             <p>Converted drupalSettings from JavaScript to JSON, to allow for CSP in the future. <a href="https://www.drupal.org/node/2510104">7.x backport</a></p>
           </div>
         </section>
