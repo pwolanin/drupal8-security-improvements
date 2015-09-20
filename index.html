@@ -4,9 +4,9 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Drupal 8 Security - July 17, 2015</title>
+    <title>10 Ways Drupal 8 Will Be More Secure</title>
 
-    <meta name="description" content="Drupal 8.0.x Security Improvements">
+    <meta name="description" content="10 Ways Drupal 8 Will Be More Secure">
     <meta name="author" content="Peter Wolanin">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -47,7 +47,7 @@
         </div>
         <div class="session--info"  style="position: absolute; bottom: 0em; z-index: 20;">
           <p class="session__title">
-            Drupal 8 Security Improvements
+            10 Ways Drupal 8 Will Be More Secure
             <span class="seperator">&nbsp;/&nbsp;</span>
           </p>
           <p class="session__presenter">
@@ -59,10 +59,9 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h1>Drupal 8.0.x Security Improvements</h1>
-          <h2>August 13, 2015</h2>
-          <h2>Central NJ Drupal Meetup</h2>
-          <em class="small-text">originally prepared for Drupal Security and Privacy Summit at 2015 NYCcamp</em>
+          <h1>10 Ways Drupal 8 Will Be More Secure</h1>
+          <h2>September 22, 2015</h2>
+          <h2>Drupalcon Barcelona</h2>
         </section>
 
         <section data-background="images/backgrounds/16968083219_34589346e4_o.jpg">
@@ -78,6 +77,11 @@
 
 
         <section>
+          <section>
+          <div class="text-bg">
+            <h1>#1) Twig as template engine</h1>
+          </div>
+          </section>
           <section>
           <div class="text-bg">
             <h1>Twig as template engine</h1>
@@ -146,19 +150,58 @@
 
         </section>
 
-
         <section>
+          <section>
           <div class="text-bg">
-           <h2>CMI</h2>
-           <ul>
-            <li>Site configuration exportable, manageable as code, and versionable</li>
-            <li>Configuration can be locked in production and deployed from QA</li>
-            <li>Much easier to track an auditable history of configuration changes</li>
-            </ul>
+            <h1>#2) Removed PHP text filter and the use of PHP as a configuration import format</h1>
           </div>
+          </section>
+          <section>
+            <div class="text-bg">
+              <h1>PHP module removed from core</h1>
+                <ul>
+                  <li>Encourages proper code management</li>
+                  <li>Removes risk of exposure to anonymous (yes I've seen it in the wild)</li>
+                  <li>Reduces the impact of admin accounts being compromosed</li>
+                </ul>
+            </div>
+          </section>
+          <section>
+            <div class="text-bg">
+              <h1>PHP not used as an import format</h1>
+                <ul>
+                  <li>See upcoming point #3</li>
+                  <li>Configuration import can be allowed witout allowing code execution</li>
+                </ul>
+            </div>
+          </section>
         </section>
 
         <section>
+          <section>
+          <div class="text-bg">
+            <h1>#3) Site configuration exportable, manageable as code, and versionable</h1>
+          </div>
+          </section>
+           <section>
+            <div class="text-bg">
+             <h2>Configuration Management Initiative (CMI)</h2>
+             <ul>
+              <li>Site configuration exportable, manageable as code, and versionable</li>
+              <li>Configuration can be locked in production and deployed from QA</li>
+              <li>Much easier to track an auditable history of configuration changes</li>
+              </ul>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+          <div class="text-bg">
+            <h1>#4) User content entry and filtering improved</h1>
+          </div>
+          </section>
+
         <section>
           <div class="text-bg">
             <h1>WYSIWYG in core</h1>
@@ -171,17 +214,30 @@
           </div>
 	  <img src="images/allowd-tags.png"/>
         </section>
+        <section>
+          <div class="text-bg">
+            <h1>Local image input filter in core</h1>
+            <p>Local image input filter got invented to allow images on drupal.org</p>
+            <p><a href="https://www.drupal.org/node/1344078">Ported to Drupal 8 for everyone</a></p>
+          </div>
+        </section>
         </section>
 
         <section>
+          <section>
           <div class="text-bg">
-            <h1>PHP module removed from core</h1>
-              <ul>
-                <li>Encourages proper code management</li>
-                <li>Removes risk of exposure to anonymous (yes I've seen it in the wild)</li>
-                <li>Reduces the impact of admin accounts being compromosed</li>
-              </ul>
+            <h1>#5) Hardened user session and session ID handling</h1>
           </div>
+          </section>
+
+        <section>
+          <div class="text-bg">
+            <h1>Remove mixed SSL support from core</h1>
+              <p>Support for sessions that work both SSL and non-SSL (Secure Pages) <a href="https://www.drupal.org/node/2384903">removed</a>. Encourages full SSL.</p>
+              <p>Will have to replace the session handling service if you really need this.</p>
+          </div>
+        </section>
+
         </section>
 
         <section>
@@ -205,21 +261,9 @@
           </div>
         </section>
 
-        <section>
-          <div class="text-bg">
-            <h1>Remove mixed SSL support from core</h1>
-              <p>Support for sessions that work both SSL and non-SSL (Secure Pages) <a href="https://www.drupal.org/node/2384903">removed</a>. Encourages full SSL.</p>
-              <p>Will have to replace the session handling service if you really need this.</p> 
-          </div>
-        </section>
 
-        <section>
-          <div class="text-bg">
-            <h1>Local image input filter in core</h1>
-            <p>Local image input filter got invented to allow images on drupal.org</p>
-            <p><a href="https://www.drupal.org/node/1344078">Ported to Drupal 8 for everyone</a></p>
-          </div>
-        </section>
+
+
 
 
         <section>
