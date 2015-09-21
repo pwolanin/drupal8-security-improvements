@@ -58,61 +58,57 @@
 
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-        <section>
-          <h1>10 Ways Drupal 8 Will Be More Secure</h1>
-          <h2>September 22, 2015</h2>
-          <h2>Drupalcon Barcelona</h2>
-        </section>
-
-        <section data-background="images/backgrounds/16968083219_34589346e4_o.jpg">
-          <div class="about-me">
-          <h1>Peter Wolanin</h1>
-            <h6>Acquia Engineering & Drupal Security Team</h6>
-            <h1>pwolanin</h1>
-            <p class="photo-credit">
-              Photo by <a href="https://www.flickr.com/photos/amazeelabs/16968083219/in/set-72157651561042300">amazeelabs</a>, <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">by-nc-sa</a>
-            </p>
-            </div>
-            </section>
-
-
-        <section>
-          <section>
-          <div class="text-bg">
-            <h1>#1) Twig as template engine</h1>
-          </div>
-          </section>
-          <section>
-          <div class="text-bg">
-            <h1>Twig as template engine</h1>
-              <ul>
-                <li>New theme template system instead of phptemplate</li>
-                <li>http://twig.sensiolabs.org/</li>
-                <li>"modern", OO-based approach</li>
-              </ul>
-          </div>
-          </section>
-          <section>
-          <div class="text-bg">
-            <h1>Twig: keep the themers away from PHP</h1>
-              <ul>
-                <li>Templates allow looping and recursion</li>
-                <li>No access to Drupal api or SQL</li>
-              </ul>
-          </div>
-          </section>
-          <section>
-          <div class="text-bg">
-            <h1>Twig: escaping by default</h1>
-            <p>Drupal security model is inverted compared to Drupal 7. Text output in a template is escaped by default, unless it was previously escaped or marked safe</p>
-            <p>see: <a href="https://www.drupal.org/node/2296163">Twig autoescape enabled. New SafeMarkup class added.</a>
-          </div>
-          </section>
-
-        <section>
-          <div class="text-bg">
-            <h2>PHP vs Twig</h2>
-              <pre><code data-trim contenteditable>
+<section>
+   <h1>10 Ways Drupal 8 Will Be More Secure</h1>
+   <h2>September 22, 2015</h2>
+   <h2>Drupalcon Barcelona</h2>
+</section>
+<section data-background="images/backgrounds/16968083219_34589346e4_o.jpg">
+   <div class="about-me">
+      <h1>Peter Wolanin</h1>
+      <h6>Acquia Engineering & Drupal Security Team</h6>
+      <h1>pwolanin</h1>
+      <p class="photo-credit">
+         Photo by <a href="https://www.flickr.com/photos/amazeelabs/16968083219/in/set-72157651561042300">amazeelabs</a>, <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">by-nc-sa</a>
+      </p>
+   </div>
+</section>
+<section>
+   <section>
+      <div class="text-bg">
+         <h1>#1) Twig as template engine</h1>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>Twig as template engine</h1>
+         <ul>
+            <li>New theme template system instead of phptemplate</li>
+            <li>http://twig.sensiolabs.org/</li>
+            <li>"modern", OO-based approach</li>
+         </ul>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>Twig: keep the themers away from PHP</h1>
+         <ul>
+            <li>Templates allow looping and recursion</li>
+            <li>No access to Drupal api or SQL</li>
+         </ul>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>Twig: escaping by default</h1>
+         <p>Drupal security model is inverted compared to Drupal 7. Text output in a template is escaped by default, unless it was previously escaped or marked safe</p>
+         <p>see: <a href="https://www.drupal.org/node/2296163">Twig autoescape enabled. New SafeMarkup class added.</a>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h2>PHP vs Twig</h2>
+         <pre><code data-trim contenteditable>
 &lt;div id=&quot;&lt;?php print $block_html_id; ?&gt;&quot; class=&quot;&lt;?php print $classes; ?&gt;&quot;&lt;?php print $attributes; ?&gt;&gt;
 
   &lt;?php print render($title_prefix); ?&gt;
@@ -126,14 +122,12 @@
   &lt;/div&gt;
 &lt;/div&gt;
               </code></pre>
-
-          </div>
-        </section>
-
-        <section>
-          <div class="text-bg">
-            <h2>PHP vs Twig</h2>
-              <pre><code data-trim contenteditable>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h2>PHP vs Twig</h2>
+         <pre><code data-trim contenteditable>
 &lt;div{{ attributes }}&gt;
   {{ title_prefix }}
   {% if label %}
@@ -145,121 +139,113 @@
   {% endblock %}
 &lt;/div&gt;
               </code></pre>
-          </div>
-        </section>
-
-        </section>
-
-        <section>
-          <section>
-          <div class="text-bg">
-            <h1>#2) Removed PHP text filter and the use of PHP as a configuration import format</h1>
-          </div>
-          </section>
-          <section>
-            <div class="text-bg">
-              <h1>PHP module removed from core</h1>
-                <ul>
-                  <li>Encourages proper code management</li>
-                  <li>Removes risk of exposure to anonymous (yes I've seen it in the wild)</li>
-                  <li>Reduces the impact of admin accounts being compromosed</li>
-                </ul>
-            </div>
-          </section>
-          <section>
-            <div class="text-bg">
-              <h1>PHP not used as an import format</h1>
-                <ul>
-                  <li>See upcoming point #3</li>
-                  <li>Configuration import can be allowed witout allowing code execution</li>
-                </ul>
-            </div>
-          </section>
-        </section>
-
-        <section>
-          <section>
-          <div class="text-bg">
-            <h1>#3) Site configuration exportable, manageable as code, and versionable</h1>
-          </div>
-          </section>
-           <section>
-            <div class="text-bg">
-             <h2>Configuration Management Initiative (CMI)</h2>
-             <ul>
-              <li>Site configuration exportable, manageable as code, and versionable</li>
-              <li>Configuration can be locked in production and deployed from QA</li>
-              <li>Much easier to track an auditable history of configuration changes</li>
-              </ul>
-            </div>
-          </section>
-        </section>
-
-        <section>
-          <section>
-          <div class="text-bg">
-            <h1>#4) User content entry and filtering improved</h1>
-          </div>
-          </section>
-
-        <section>
-          <div class="text-bg">
-            <h1>WYSIWYG in core</h1>
-          </div>
-	  <img src="images/editor-config.png"/>
-        </section>
-        <section>
-          <div class="text-bg">
-            <h1>WYSIWYG in core</h1>
-          </div>
-	  <img src="images/allowd-tags.png"/>
-        </section>
-        <section>
-          <div class="text-bg">
-            <h1>Local image input filter in core</h1>
-            <p>Local image input filter got invented to allow images on drupal.org</p>
-            <p><a href="https://www.drupal.org/node/1344078">Ported to Drupal 8 for everyone</a></p>
-          </div>
-        </section>
-        </section>
-
-        <section>
-          <section>
-          <div class="text-bg">
-            <h1>#5) Hardened user session and session ID handling</h1>
-          </div>
-          </section>
-          <section>
-          <div class="text-bg">
-            <h1>Session Handling Security</h1>
-              <p>Session IDs hashed when stored. Storing only the hashed value prevents session hijacking if the session storage (e.g. database backup) is exposed.</p>
-              <p>Extra bonues - www. not stripped from session cookie name</p>
-          </div>
-        </section>
-        <section>
-          <div class="text-bg">
-            <h1>Remove mixed SSL support from core</h1>
-              <p>Support for sessions that work both SSL and non-SSL (Secure Pages) <a href="https://www.drupal.org/node/2384903">removed</a>. Encourages full SSL.</p>
-              <p>Will have to replace the session handling service if you really need this.</p>
-          </div>
-        </section>
-
-        </section>
-
-        <section>
-          <section>
-          <div class="text-bg">
-            <h1>#6) Automated CSRF token protection in route definitions</h1>
-          </div>
-          </section>
-          <section>
-            <div class="text-bg">
-              <h1>CSRF token management in the routing system</h1>
-              <p>Routes can specify token protection for GET requests, instead of requiring hand coded protection using API functions.</p>
-            </div>
-          </section>
-          <section>
-<pre><code data-trim contenteditable>
+      </div>
+   </section>
+</section>
+<section>
+   <section>
+      <div class="text-bg">
+         <h1>#2) Removed PHP text filter and the use of PHP as a configuration import format</h1>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>PHP module removed from core</h1>
+         <ul>
+            <li>Encourages proper code management</li>
+            <li>Removes risk of exposure to anonymous (yes I've seen it in the wild)</li>
+            <li>Reduces the impact of admin accounts being compromosed</li>
+         </ul>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>PHP not used as an import format</h1>
+         <ul>
+            <li>See upcoming point #3</li>
+            <li>Configuration import can be allowed witout allowing code execution</li>
+         </ul>
+      </div>
+   </section>
+</section>
+<section>
+   <section>
+      <div class="text-bg">
+         <h1>#3) Site configuration exportable, manageable as code, and versionable</h1>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h2>Configuration Management Initiative (CMI)</h2>
+         <ul>
+            <li>Site configuration exportable, manageable as code, and versionable</li>
+            <li>Configuration can be locked in production and deployed from QA</li>
+            <li>Much easier to track an auditable history of configuration changes</li>
+         </ul>
+      </div>
+   </section>
+</section>
+<section>
+   <section>
+      <div class="text-bg">
+         <h1>#4) User content entry and filtering improved</h1>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>WYSIWYG in core</h1>
+      </div>
+      <img src="images/editor-config.png"/>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>WYSIWYG in core</h1>
+      </div>
+      <img src="images/allowd-tags.png"/>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>Local image input filter in core</h1>
+         <p>Local image input filter got invented to allow images on drupal.org</p>
+         <p><a href="https://www.drupal.org/node/1344078">Ported to Drupal 8 for everyone</a></p>
+      </div>
+   </section>
+</section>
+<section>
+   <section>
+      <div class="text-bg">
+         <h1>#5) Hardened user session and session ID handling</h1>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>Session Handling Security</h1>
+         <p>Session IDs hashed when stored. Storing only the hashed value prevents session hijacking if the session storage (e.g. database backup) is exposed.</p>
+         <p>Extra bonues - www. not stripped from session cookie name</p>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>Remove mixed SSL support from core</h1>
+         <p>Support for sessions that work both SSL and non-SSL (Secure Pages) <a href="https://www.drupal.org/node/2384903">removed</a>. Encourages full SSL.</p>
+         <p>Will have to replace the session handling service if you really need this.</p>
+      </div>
+   </section>
+</section>
+<section>
+   <section>
+      <div class="text-bg">
+         <h1>#6) Automated CSRF token protection in route definitions</h1>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>CSRF token management in the routing system</h1>
+         <p>Routes can specify token protection for GET requests, instead of requiring hand coded protection using API functions.</p>
+      </div>
+   </section>
+   <section>
+      <pre><code data-trim contenteditable>
 entity.shortcut.link_delete_inline:
   path: '/admin/config/user-interface/shortcut/link/{shortcut}/delete-inline'
   defaults:
@@ -267,67 +253,61 @@ entity.shortcut.link_delete_inline:
   requirements:
     _entity_access: 'shortcut.delete'
     _csrf_token: 'TRUE'
-</pre></code>
-	  <img src="images/shortut-delete-token-lg.png"/>
-          </section>
-        </section>
+</pre>
+      </code>
+      <img src="images/shortut-delete-token-lg.png"/>
+   </section>
+</section>
+<section>
+   <section>
+      <div class="text-bg">
+         <h1>#7) Trusted host patterns enforced for requests</h1>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>Trusted Host Configuration in settings.php</h1>
+         <p>Easier way to block unexpected host names accessing Drupal (phishing, cache poisoining, etc).</p>
+      </div>
+   </section>
+</section>
+<section>
+   <section>
+      <div class="text-bg">
+         <h1>#8) PDO MySQL limited to executing single statements</h1>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>Limit PDO MySQL if PHP supports it</h1>
+         <p>Requires PHP 5.5.21+ or 5.6.5+ for PDO MySQL change. <a href="https://www.drupal.org/node/2388255">7.x backport</a></p>
+         <p>There is also a <a href="https://www.drupal.org/node/2489672">patch in progress</a> to try to enforce this protection regardless of which specific database driver is being used</p>
+      </div>
+   </section>
+</section>
+<section>
+   <div class="text-bg">
+      <h1>#9) Clickjacking protection enabled by default</h1>
+      <p>Drupal 8 sends the <code>X-Frame-Options: SAMEORIGIN</code> header in all responses by default. (A small change, but one people notice)</p>
+   </div>
+</section>
+<section>
+   <section>
+      <div class="text-bg">
+         <h1>#10) Core JavaScript API Compatible with CSP</h1>
+      </div>
+   </section>
+   <section>
+      <div class="text-bg">
+         <h1>Inline JS removed from #attached</h1>
+         <p>Adding inline JS is no longer a supported part of the render system</p>
+         <p>Converted drupalSettings from JavaScript to JSON, to allow for CSP in the future. <a href="https://www.drupal.org/node/2510104">7.x backport</a></p>
+      </div>
+   </section>
+</section>
 
-        <section>
-          <section>
-          <div class="text-bg">
-            <h1>#7) Trusted host patterns enforced for requests</h1>
-          </div>
-          </section>
-
-          <section>
-            <div class="text-bg">
-              <h1>Trusted Host Configuration in settings.php</h1>
-              <p>Easier way to block unexpected host names accessing Drupal (phishing, cache poisoining, etc).</p>
-            </div>
-          </section>
-        </section>
-
-        <section>
-          <section>
-          <div class="text-bg">
-            <h1>#8) PDO MySQL limited to executing single statements</h1>
-          </div>
-          </section>
-        <section>
-          <div class="text-bg">
-            <h1>Limit PDO MySQL if PHP supports it</h1>
-            <p>Requires PHP 5.5.21+ or 5.6.5+ for PDO MySQL change. <a href="https://www.drupal.org/node/2388255">7.x backport</a></p>
-            <p>There is also a <a href="https://www.drupal.org/node/2489672">patch in progress</a> to try to enforce this protection regardless of which specific database driver is being used</p>
-          </div>
-        </section>
 
 
-        </section>
-
-        <section>
-          <section>
-          <div class="text-bg">
-            <h1>#9) Clickjacking protection enabled by default</h1>
-            <p>Drupal 8 sends the <code>X-Frame-Options: SAMEORIGIN</code> header in all responses by default. (A small change, but one people notice)</p>
-          </div>
-          </section>
-        <section>
-
-        <section>
-          <section>
-          <div class="text-bg">
-            <h1>#10) Core JavaScript API Compatible with CSP</h1>
-          </div>
-          </section>
-        <section>
-          <div class="text-bg">
-            <h1>Inline JS removed from #attached</h1>
-            <p>Adding inline JS is no longer a supported part of the render system</p>
-            <p>Converted drupalSettings from JavaScript to JSON, to allow for CSP in the future. <a href="https://www.drupal.org/node/2510104">7.x backport</a></p>
-          </div>
-        </section>
-
-        </section>
 
 
 
