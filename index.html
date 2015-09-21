@@ -260,36 +260,65 @@
           </section>
           <section>
 <pre><code data-trim contenteditable>
-shortcut.link_add_inline:
-  path: '/admin/config/user-interface/shortcut/manage/{shortcut_set}/add-link-inline'
+entity.shortcut.link_delete_inline:
+  path: '/admin/config/user-interface/shortcut/link/{shortcut}/delete-inline'
   defaults:
-    _controller: 'Drupal\shortcut\Controller\ShortcutSetController::addShortcutLinkInline'
+    _controller: 'Drupal\shortcut\Controller\ShortcutController::deleteShortcutLinkInline'
   requirements:
-    _entity_access: 'shortcut_set.update'
+    _entity_access: 'shortcut.delete'
     _csrf_token: 'TRUE'
 </pre></code>
+	  <img src="images/shortut-delete-token-lg.png"/>
           </section>
         </section>
 
         <section>
+          <section>
           <div class="text-bg">
-            <h1>Trusted Host Configuration in settings.php</h1>
-            <p>Easier way to block unexpected host names accessing Drupal (phishing, cache poisoining, etc).</p>
+            <h1>#7) Trusted host patterns enforced for requests</h1>
           </div>
+          </section>
+
+          <section>
+            <div class="text-bg">
+              <h1>Trusted Host Configuration in settings.php</h1>
+              <p>Easier way to block unexpected host names accessing Drupal (phishing, cache poisoining, etc).</p>
+            </div>
+          </section>
         </section>
 
         <section>
+          <section>
           <div class="text-bg">
-            <h1>Limit PDO MySQL to executing single statements if PHP supports it</h1>
+            <h1>#8) PDO MySQL limited to executing single statements</h1>
+          </div>
+          </section>
+        <section>
+          <div class="text-bg">
+            <h1>Limit PDO MySQL if PHP supports it</h1>
             <p>Requires PHP 5.5.21+ or 5.6.5+ for PDO MySQL change. <a href="https://www.drupal.org/node/2388255">7.x backport</a></p>
+            <p>There is also a <a href="https://www.drupal.org/node/2489672">patch in progress</a> to try to enforce this protection regardless of which specific database driver is being used</p>
           </div>
         </section>
 
 
+        </section>
 
+        <section>
+          <section>
+          <div class="text-bg">
+            <h1>#9) Clickjacking protection enabled by default</h1>
+            <p>Drupal 8 sends the <code>X-Frame-Options: SAMEORIGIN</code> header in all responses by default. (A small change, but one people notice)</p>
+          </div>
+          </section>
+        <section>
 
-
-
+        <section>
+          <section>
+          <div class="text-bg">
+            <h1>#10) Core JavaScript API Compatible with CSP</h1>
+          </div>
+          </section>
         <section>
           <div class="text-bg">
             <h1>Inline JS removed from #attached</h1>
@@ -298,13 +327,8 @@ shortcut.link_add_inline:
           </div>
         </section>
 
-
-        <section>
-          <div class="text-bg">
-            <h1>Improved security of session ID against DB exposure or SQL injection</h1>
-            <p>Hash session IDs in the database so the raw cookie value can't be exposed.  <a href="https://www.drupal.org/node/2164025">7.x backport</a></p>
-          </div>
         </section>
+
 
 
         <section>
