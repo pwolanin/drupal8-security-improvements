@@ -229,7 +229,13 @@
             <h1>#5) Hardened user session and session ID handling</h1>
           </div>
           </section>
-
+          <section>
+          <div class="text-bg">
+            <h1>Session Handling Security</h1>
+              <p>Session IDs hashed when stored. Storing only the hashed value prevents session hijacking if the session storage (e.g. database backup) is exposed.</p>
+              <p>Extra bonues - www. not stripped from session cookie name</p>
+          </div>
+        </section>
         <section>
           <div class="text-bg">
             <h1>Remove mixed SSL support from core</h1>
@@ -241,10 +247,28 @@
         </section>
 
         <section>
+          <section>
           <div class="text-bg">
-            <h1>CSRF token management in the routing system</h1>
-            <p>Routes can specify token protection for GET requests, instead of requiring hand coded protection using API functions.</p>
+            <h1>#6) Automated CSRF token protection in route definitions</h1>
           </div>
+          </section>
+          <section>
+            <div class="text-bg">
+              <h1>CSRF token management in the routing system</h1>
+              <p>Routes can specify token protection for GET requests, instead of requiring hand coded protection using API functions.</p>
+            </div>
+          </section>
+          <section>
+<pre><code data-trim contenteditable>
+shortcut.link_add_inline:
+  path: '/admin/config/user-interface/shortcut/manage/{shortcut_set}/add-link-inline'
+  defaults:
+    _controller: 'Drupal\shortcut\Controller\ShortcutSetController::addShortcutLinkInline'
+  requirements:
+    _entity_access: 'shortcut_set.update'
+    _csrf_token: 'TRUE'
+</pre></code>
+          </section>
         </section>
 
         <section>
