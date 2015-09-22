@@ -102,7 +102,7 @@
       <div class="text-bg">
          <h1>Twig: escaping by default</h1>
          <p>Drupal security model is inverted compared to Drupal 7. Text output in a template is escaped by default, unless it was previously escaped or marked safe</p>
-         <p>see: <a href="https://www.drupal.org/node/2296163">Twig autoescape enabled. New SafeMarkup class added.</a>
+         <p>Text that has been escaped is encapsulated in a SafeString object.  Beware legacy theme_ functions</p>
       </div>
    </section>
    <section>
@@ -178,8 +178,8 @@
       <div class="text-bg">
          <h2>Configuration Management Initiative (CMI)</h2>
          <ul>
-            <li>Site configuration exportable, manageable as code, and versionable</li>
-            <li>Configuration can be locked in production and deployed from QA</li>
+            <li>Drush integration, as well as UI tools to compare current to expected</li>
+            <li>Configuration can be locked in production and deployed from QA (needs some small contrib code)</li>
             <li>Much easier to track an auditable history of configuration changes</li>
          </ul>
       </div>
@@ -207,7 +207,7 @@
       <div class="text-bg">
          <h1>Local image input filter in core</h1>
          <p>Local image input filter got invented to allow images on drupal.org</p>
-         <p><a href="https://www.drupal.org/node/1344078">Ported to Drupal 8 for everyone</a></p>
+         <p>Ported to Drupal 8 for everyone</p>
       </div>
    </section>
 </section>
@@ -227,7 +227,7 @@
    <section>
       <div class="text-bg">
          <h1>Remove mixed SSL support from core</h1>
-         <p>Support for sessions that work both SSL and non-SSL (Secure Pages) <a href="https://www.drupal.org/node/2384903">removed</a>. Encourages full SSL.</p>
+         <p>Support for sessions that work both SSL and non-SSL (Secure Pages) removed. Encourages full SSL.</p>
          <p>Will have to replace the session handling service if you really need this.</p>
       </div>
    </section>
@@ -266,8 +266,9 @@ entity.shortcut.link_delete_inline:
    </section>
    <section>
       <div class="text-bg">
-         <h1>Trusted Host Configuration in settings.php</h1>
-         <p>Easier way to block unexpected host names accessing Drupal (phishing, cache poisoining, etc).</p>
+         <h1>Trusted hosts listed in settings.php</h1>
+         <p>Easier way to block unexpected host names accessing Drupal (phishing, cache poisoining, etc)</p>
+         <p>Site status report will warn you if this is not set up</p>
       </div>
    </section>
 </section>
@@ -280,7 +281,7 @@ entity.shortcut.link_delete_inline:
    <section>
       <div class="text-bg">
          <h1>Limit PDO MySQL if PHP supports it</h1>
-         <p>Requires PHP 5.5.21+ or 5.6.5+ for PDO MySQL change. <a href="https://www.drupal.org/node/2388255">7.x backport</a></p>
+         <p>Requires PHP 5.5.21+ or 5.6.5+ for PDO MySQL change.</p>
          <p>There is also a <a href="https://www.drupal.org/node/2489672">patch in progress</a> to try to enforce this protection regardless of which specific database driver is being used</p>
       </div>
    </section>
@@ -301,7 +302,7 @@ entity.shortcut.link_delete_inline:
       <div class="text-bg">
          <h1>Inline JS removed from #attached</h1>
          <p>Adding inline JS is no longer a supported part of the render system</p>
-         <p>Converted drupalSettings from JavaScript to JSON, to allow for CSP in the future. <a href="https://www.drupal.org/node/2510104">7.x backport</a></p>
+         <p>Converted drupalSettings from JavaScript to JSON, to allow for CSP in the future</p>
       </div>
    </section>
 </section>
